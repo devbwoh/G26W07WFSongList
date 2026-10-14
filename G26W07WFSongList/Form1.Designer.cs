@@ -28,6 +28,8 @@
             txtArtist = new TextBox();
             txtRating = new TextBox();
             btnAdd = new Button();
+            btnDelete = new Button();
+            txtSelected = new TextBox();
             SuspendLayout();
             // 
             // listSong
@@ -37,6 +39,7 @@
             listSong.Name = "listSong";
             listSong.Size = new Size(596, 229);
             listSong.TabIndex = 0;
+            listSong.SelectedIndexChanged += OnChanged;
             // 
             // txtTitle
             // 
@@ -73,11 +76,35 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += OnAdd;
             // 
+            // btnDelete
+            // 
+            btnDelete.Enabled = false;
+            btnDelete.Location = new Point(530, 289);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(78, 36);
+            btnDelete.TabIndex = 5;
+            btnDelete.Text = "삭제";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += OnDelete;
+            // 
+            // txtSelected
+            // 
+            txtSelected.Enabled = false;
+            txtSelected.Location = new Point(12, 289);
+            txtSelected.Name = "txtSelected";
+            txtSelected.PlaceholderText = "삭제를 위해 선택된 노래";
+            txtSelected.ReadOnly = true;
+            txtSelected.Size = new Size(512, 31);
+            txtSelected.TabIndex = 6;
+            txtSelected.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(620, 288);
+            ClientSize = new Size(620, 333);
+            Controls.Add(txtSelected);
+            Controls.Add(btnDelete);
             Controls.Add(listSong);
             Controls.Add(txtTitle);
             Controls.Add(txtArtist);
@@ -96,5 +123,7 @@
         private TextBox txtArtist;
         private TextBox txtRating;
         private Button btnAdd;
+        private Button btnDelete;
+        private TextBox txtSelected;
     }
 }
